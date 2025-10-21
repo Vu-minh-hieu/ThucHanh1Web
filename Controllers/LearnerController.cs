@@ -71,11 +71,8 @@ namespace ThucHanh1.Controllers
             ViewBag.pageNum = pageNum;
 
             // Lấy dữ liệu trong trang hiện tại
-            var result = learners
-                .Skip(pageSize * (page - 1))
-                .Take(pageSize)
-                .Include(l => l.Major)
-                .ToList();
+            var result = learners.Skip(pageSize * (page - 1)).Take(pageSize)
+                .Include(l => l.Major).ToList();
 
             return PartialView("LearnerTable", result);
         }
